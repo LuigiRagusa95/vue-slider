@@ -33,6 +33,11 @@ const root = new Vue({
 		],
 		actived: 0,
 	},
+	created() {
+		setInterval(() => {
+			this.nextSlide();
+		}, 3000);
+	},
 	methods: {
 		getActive(thumbIndex, currentIndex) {
 			return thumbIndex === currentIndex ? `active` : "";
@@ -42,15 +47,9 @@ const root = new Vue({
 		},
 		prevSlide() {
 			this.actived <= 0 ? (this.actived = this.slides.length - 1) : this.actived--;
-			console.log(this.actived);
 		},
 		nextSlide() {
 			this.actived >= this.slides.length - 1 ? (this.actived = 0) : this.actived++;
-			console.log(this.actived);
-		},
-		handleClick(event) {
-			console.log("click", event.currentTarget);
-			console.log(this.actived);
 		},
 	},
 });

@@ -25,7 +25,7 @@
 			<!-- Thumbnails -->
 			<div class="thumbs">
 				<!-- genera con vue  -->
-				<div v-for="(img, index) in slides" class="thumb" :class="getActive(index, actived)" @click="handleClick">
+				<div v-for="(img, index) in slides" class="thumb" :class="getActive(index, actived)">
 					<img :src="img.image" :alt="img.title" />
 				</div>
 
