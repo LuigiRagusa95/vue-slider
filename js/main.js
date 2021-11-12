@@ -27,7 +27,8 @@ const root = new Vue({
 			},
 			{
 				image: "img/05.jpg",
-				title: "Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.",
+				title: "Bahamas",
+				text: "Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.",
 			},
 		],
 		actived: 0,
@@ -35,6 +36,21 @@ const root = new Vue({
 	methods: {
 		getActive(thumbIndex, currentIndex) {
 			return thumbIndex === currentIndex ? `active` : "";
+		},
+		getHidden(thumbIndex, currentIndex) {
+			return thumbIndex !== currentIndex ? `hidden` : "";
+		},
+		prevSlide() {
+			this.actived <= 0 ? (this.actived = this.slides.length - 1) : this.actived--;
+			console.log(this.actived);
+		},
+		nextSlide() {
+			this.actived >= this.slides.length - 1 ? (this.actived = 0) : this.actived++;
+			console.log(this.actived);
+		},
+		handleClick(event) {
+			console.log("click", event.currentTarget);
+			console.log(this.actived);
 		},
 	},
 });

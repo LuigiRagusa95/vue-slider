@@ -13,11 +13,11 @@
 			<!-- Images -->
 			<div class="images">
 				<!-- genera con vue -->
-				<div class="image-container">
-					<img src="./img/01.jpg" alt="Lorem" />
+				<div v-for="(item, index) in slides" class="image-container" :class="getHidden(index, actived)">
+					<img :src="item.image" :alt="item.title" />
 					<div class="text">
-						<h3>Lorem</h3>
-						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.</p>
+						<h3>{{item.title}}</h3>
+						<p>{{item.text}}</p>
 					</div>
 				</div>
 			</div>
@@ -25,12 +25,12 @@
 			<!-- Thumbnails -->
 			<div class="thumbs">
 				<!-- genera con vue  -->
-				<div v-for="(img, index) in slides" class="thumb" :class="getActive(index, actived)">
+				<div v-for="(img, index) in slides" class="thumb" :class="getActive(index, actived)" @click="handleClick">
 					<img :src="img.image" :alt="img.title" />
 				</div>
 
-				<div class="prev">&uarr;</div>
-				<div class="next">&darr;</div>
+				<div class="prev" @click="prevSlide()">&uarr;</div>
+				<div class="next" @click="nextSlide()">&darr;</div>
 			</div>
 		</section>
 		<script src="./js/main.js" defer></script>
