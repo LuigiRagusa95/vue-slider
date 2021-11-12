@@ -51,5 +51,8 @@ const root = new Vue({
 		nextSlide() {
 			this.actived >= this.slides.length - 1 ? (this.actived = 0) : this.actived++;
 		},
+		handleClick(e) {
+			this.actived = [...document.querySelectorAll(".thumb")].indexOf(e.currentTarget);
+		},
 	},
 });
